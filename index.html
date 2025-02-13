@@ -20,7 +20,7 @@
 
     /* Top bar with phone and urgent button */
     .top-bar {
-      background-color: #d9534f; /* Red tone similar to screenshot */
+      background-color: #d9534f; /* Red tone for top bar */
       padding: 10px 0;
       text-align: center;
       color: #fff;
@@ -44,52 +44,86 @@
       background-color: #4cae4c;
     }
 
-    /* Main content area */
+    /* Main container */
     .main-content {
       max-width: 1100px;
-      margin: 20px auto;
+      margin: 20px auto 40px auto;
       background-color: #fff;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    /* Heading and intro text */
+    .header-section {
+      text-align: center;
       padding: 20px;
     }
-    .main-content h1 {
-      text-align: center;
+    .header-section h1 {
       font-size: 28px;
       margin-bottom: 10px;
       color: #d9534f;
     }
-    .main-content .subtitle {
-      text-align: center;
+    .header-section .subtitle {
       font-size: 18px;
       color: #555;
-      margin-bottom: 20px;
-    }
-    .main-content p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin: 15px 0;
+      margin-bottom: 0;
     }
 
-    /* Image section */
-    .image-section {
+    /* Reusable section layout */
+    .section {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
+      padding: 20px;
       gap: 20px;
-      margin-top: 20px;
     }
-    .image-section img {
-      max-width: 300px;
-      width: 100%;
+    .section-content {
+      flex: 1 1 400px;
+    }
+    .section-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    .section-image img {
+      max-width: 100%;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Reverse layout for alternating images/text */
+    .section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #d9534f;
+    }
+    .section p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    /* Second large block styling */
+    .wheelchair-block {
+      background-color: #f0f4f8;
+      margin-top: 0;
+    }
+    .wheelchair-block h2 {
+      color: #0275d8; /* Blue highlight */
+    }
+    .wheelchair-block p {
+      margin-bottom: 15px;
     }
 
     /* Bottom call button */
     .bottom-call {
       text-align: center;
-      margin: 30px 0 10px 0;
+      margin: 30px 0;
     }
     .bottom-call a {
       display: inline-block;
@@ -110,35 +144,76 @@
 
   <!-- Top Bar -->
   <div class="top-bar">
-    <span class="phone-number">+7 (900) 123-45-67</span>
+    <span class="phone-number">+7 (965) 259-59-12</span>
     <a class="urgent-button" href="tel:+79001234567">Срочный заказ перевозки больного</a>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main Content Container -->
   <div class="main-content">
-    <h1>Медицинская перевозка и транспортировка</h1>
-    <!-- Optional subtitle to mimic the screenshot style; you can remove or change as needed -->
-    <div class="subtitle">Везем, не трясем!</div>
+    
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1>Медицинская перевозка и транспортировка</h1>
+      <div class="subtitle">Везем с комфортом и уютом!</div>
+    </div>
 
-    <p>
-      Бережно перевозим лежачих больных от кровати до кровати. Комфортабельный тёплый микроавтобус скорой помощи Fiat Ducato, с возможностью перевозки 3 сопровождающих лиц. Для жаркой погоды оборудован кондиционером. Медицинская каталка Spencer с ремнями безопасности. Для подъема на этажи используем санитарные носилки с пристегнутым спальным мешком. Одеяло и подушка прилагаются. Жёсткие носилки для переноски больных с повреждением позвоночника.
-    </p>
-    <p>
-      ОСУЩЕСТВЛЯЕМ ПЕРЕВОЗКУ ИНВАЛИДОВ, БОЛЬНЫХ И МАЛОПОДВИЖНЫХ ЛЮДЕЙ В КОЛЯСКАХ. Аккуратно доставим инвалида - колясочника и сопроводим до места назначения. Перевезем из дома лежачего пациента до медицинского учреждения. Сопроводим по процедурным кабинетам.
-    </p>
+    <!-- Section 1: Fiat Ducato and Intro Text -->
+    <div class="section">
+      <div class="section-content">
+        <h2>Fiat Ducato — комфорт и тепло</h2>
+        <p>
+          Бережно перевозим лежачих больных от кровати до кровати в уютном и безопасном микроавтобусе скорой помощи <strong>Fiat Ducato</strong>. 
+          В салоне тепло в холодное время года и прохладно в жару благодаря встроенному кондиционеру. 
+          Мы можем перевозить до трёх сопровождающих лиц, обеспечивая удобство и спокойствие для всех пассажиров.
+        </p>
+      </div>
+      <div class="section-image">
+        <!-- Replace with your own ambulance image -->
+        <img src="Fiat Ducato Ambulance.jpg" alt="Fiat Ducato Ambulance">
+      </div>
+    </div>
 
-    <!-- Images (replace these with your own files) -->
-    <div class="image-section">
-      <img src="Fiat Ducato Ambulance.jpg" alt="Fiat Ducato Ambulance">
-      <img src="images/stretcher.jpg" alt="Spencer Stretcher">
-      <img src="images/wheelchair.jpg" alt="Wheelchair Transportation">
+    <!-- Section 2: Spencer Stretcher and Additional Equipment -->
+    <div class="section reverse">
+      <div class="section-content">
+        <h2>Оборудование для безопасности</h2>
+        <p>
+          Для надёжной и безопасной транспортировки мы используем медицинскую каталку <strong>Spencer</strong> с ремнями безопасности. 
+          При подъёме на этажи применяются санитарные носилки со спальным мешком, чтобы пациенту было максимально комфортно.
+        </p>
+        <p>
+          В дороге всегда доступны одеяло и подушка. А для пациентов с травмами позвоночника у нас предусмотрены жёсткие носилки. 
+          Мы заботимся о каждом этапе перевозки и гарантируем деликатный подход к пациентам.
+        </p>
+      </div>
+      <div class="section-image">
+        <!-- Replace with your own stretcher image -->
+        <img src="Spencer Stretcher.jpg" alt="Spencer Stretcher">
+      </div>
+    </div>
+
+    <!-- Section 3: Wheelchair & Transporting Disabled People -->
+    <div class="section wheelchair-block">
+      <div class="section-image">
+        <!-- Replace with your own wheelchair transport image -->
+        <img src="Wheelchair Transportation.jpg" alt="Wheelchair Transportation">
+      </div>
+      <div class="section-content">
+        <h2>Перевозка инвалидов и малоподвижных людей</h2>
+        <p>
+          <strong>ОСУЩЕСТВЛЯЕМ ПЕРЕВОЗКУ ИНВАЛИДОВ, БОЛЬНЫХ И МАЛОПОДВИЖНЫХ ЛЮДЕЙ В КОЛЯСКАХ.</strong> 
+          Мы аккуратно доставим колясочника до нужного места, перевезём из дома лежачего пациента в медицинское учреждение и сопроводим по процедурным кабинетам.
+        </p>
+        <p>
+          Каждый пациент получает внимательное отношение и профессиональную помощь. Наша цель — сделать процесс транспортировки максимально комфортным и безопасным для всех.
+        </p>
+      </div>
     </div>
 
     <!-- Bottom Call Button -->
     <div class="bottom-call">
-      <a href="tel:+79001234567">Позвонить</a>
+      <a href="tel:+79652595912">Позвонить</a>
     </div>
   </div>
-
 </body>
 </html>
