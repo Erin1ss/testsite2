@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Медицинская перевозка и транспортировка</title>
+  <title>Медицинская перевозка и транспортировка лежачих больных</title>
   <style>
     /* Reset defaults */
     * {
@@ -16,7 +16,7 @@
       background-color: #f8f9fa;
       color: #333;
     }
-    /* Top Bar for Desktop Only */
+    /* Desktop Top Bar (hidden on mobile) */
     .top-bar {
       background-color: #d9534f;
       padding: 10px 0;
@@ -88,7 +88,33 @@
     .mobile-contact .call-button:hover {
       background-color: #025aa5;
     }
-    /* Section Layout for Text & Image */
+    /* Section 1: Fiat Ducato – Use CSS Grid for reordering on mobile */
+    .section-first {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "heading image"
+        "text image";
+      gap: 20px;
+      padding: 20px;
+      align-items: start;
+    }
+    .section-first .heading {
+      grid-area: heading;
+    }
+    .section-first .text {
+      grid-area: text;
+    }
+    .section-first .image {
+      grid-area: image;
+      text-align: center;
+    }
+    .section-first .image img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    /* Other sections use flex layout */
     .section {
       display: flex;
       flex-wrap: wrap;
@@ -121,18 +147,18 @@
       line-height: 1.6;
       margin-bottom: 10px;
     }
-    /* For sections with reversed order on desktop */
+    /* Section 2 (Equipment) – reverse order on desktop */
     .section.reverse {
       flex-direction: row-reverse;
     }
-    /* Wheelchair Block with Different Background */
+    /* Wheelchair Block */
     .wheelchair-block {
       background-color: #f0f4f8;
     }
     .wheelchair-block h2 {
       color: #0275d8;
     }
-    /* Bottom Call Button for Desktop Only */
+    /* Desktop Bottom Call Button (hidden on mobile) */
     .bottom-call {
       text-align: center;
       margin: 30px 0;
@@ -150,20 +176,33 @@
     .bottom-call a:hover {
       background-color: #025aa5;
     }
-    /* Media Queries for Mobile Devices */
+
+    .section-first h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #d9534f; /* Restore red color */
+}
+
+    /* MEDIA QUERIES */
     @media (max-width: 768px) {
-      /* Hide desktop top bar and bottom call button */
+      /* Hide desktop top bar and bottom call button, show mobile contact */
       .top-bar, .bottom-call { display: none; }
-      /* Show mobile contact block */
       .mobile-contact { display: block; }
-      /* Stack section items vertically */
+      
+      /* For section-first, change grid layout to stack: heading, image, text */
+      .section-first {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "heading"
+          "image"
+          "text";
+      }
+      
+      /* For other sections, stack items vertically */
       .section {
         flex-direction: column;
         align-items: stretch;
       }
-      /* Ensure for reversed sections, text always appears first */
-      .section.reverse .section-content { order: 1; }
-      .section.reverse .section-image { order: 2; }
     }
     @media (max-width: 480px) {
       .header-section h1 {
@@ -192,8 +231,8 @@
 
   <!-- Desktop Top Bar (Hidden on Mobile) -->
   <div class="top-bar">
-    <span class="phone-number">+7 (900) 123-45-67</span>
-    <a class="urgent-button" href="tel:+79001234567">Срочный заказ перевозки больного</a>
+    <span class="phone-number">+7 (965) 259-59-12</span>
+    <a class="urgent-button" href="tel:+79652595912">Срочный заказ перевозки больного</a>
   </div>
 
   <!-- Main Content Container -->
@@ -202,40 +241,41 @@
     <div class="header-section">
       <h1>Медицинская перевозка и транспортировка</h1>
       <div class="subtitle">Везем с комфортом и уютом!</div>
-      <!-- Mobile Contact: Visible on Mobile Only -->
+      <!-- Mobile Contact Block (Visible on Mobile Only) -->
       <div class="mobile-contact">
-        <div class="phone-number">+7 (900) 123-45-67</div>
-        <a class="call-button" href="tel:+79001234567">Позвонить</a>
+        <div class="phone-number">+7 (965) 259-59-12</div>
+        <a class="call-button" href="tel:+79652595912">Позвонить</a>
       </div>
     </div>
 
-    <!-- Section 1: Fiat Ducato & Intro Text -->
-    <div class="section">
-      <div class="section-content">
+    <!-- Section 1: Fiat Ducato (Using Grid for reordering on Mobile) -->
+    <div class="section-first">
+      <div class="heading">
         <h2>Fiat Ducato — комфорт и тепло</h2>
-        <div class="section-image">
-            <!-- Insert your Fiat Ducato ambulance image here -->
-            <img src="Fiat Ducato Ambulance.jpg" alt="Fiat Ducato Ambulance">
+      </div>
+      <div class="image">
+        <!-- Insert your Fiat Ducato ambulance image here -->
+        <img src="Fiat Ducato Ambulance.jpg" alt="Fiat Ducato Ambulance">
+      </div>
+      <div class="text">
         <p>
-          Мы бережно перевозим лежачих больных от кровати до кровати в уютном и безопасном микроавтобусе <strong>Fiat Ducato</strong>. 
-          В салоне всегда поддерживается оптимальный температурный режим – тепло в холодное время года и прохлада летом, благодаря кондиционеру.
-          Возможность перевозки до трёх сопровождающих лиц обеспечивает дополнительное удобство.
+          Бережно перевозим лежачих больных от кровати до кровати в уютном и безопасном микроавтобусе <strong>Fiat Ducato</strong>. 
+          Салон всегда поддерживает оптимальный температурный режим – тепло зимой и прохлада летом благодаря кондиционеру.
+          Возможность перевозки до трёх сопровождающих лиц добавляет дополнительное удобство.
         </p>
       </div>
-      
-      </div>
     </div>
 
-    <!-- Section 2: Equipment & Safety -->
+    <!-- Section 2: Equipment & Safety (Flex Layout, reversed on desktop) -->
     <div class="section reverse">
       <div class="section-content">
         <h2>Оборудование для безопасности</h2>
         <p>
-          Для безопасной транспортировки мы используем медицинскую каталку <strong>Spencer</strong> с ремнями безопасности. 
-          При подъёме на этажи применяются санитарные носилки со спальным мешком – для максимального комфорта пациента.
+          Для надежной транспортировки мы используем медицинскую каталку <strong>Spencer</strong> с ремнями безопасности.
+          При подъеме на этажи – санитарные носилки со спальным мешком для максимального комфорта пациента.
         </p>
         <p>
-          В дороге всегда доступны одеяло и подушка, а для пациентов с повреждением позвоночника предусмотрены жёсткие носилки. 
+          В дороге доступны одеяло и подушка, а для пациентов с повреждением позвоночника предусмотрены жесткие носилки. 
           Мы заботимся о каждом этапе перевозки, обеспечивая деликатное обращение.
         </p>
       </div>
@@ -245,7 +285,7 @@
       </div>
     </div>
 
-    <!-- Section 3: Wheelchair Transport -->
+    <!-- Section 3: Wheelchair Transport (Flex Layout) -->
     <div class="section wheelchair-block">
       <div class="section-image">
         <!-- Insert your wheelchair transportation image here -->
@@ -254,8 +294,8 @@
       <div class="section-content">
         <h2>Перевозка инвалидов и малоподвижных людей</h2>
         <p>
-          <strong>ОСУЩЕСТВЛЯЕМ ПЕРЕВОЗКУ ИНВАЛИДОВ, БОЛЬНЫХ И МАЛОПОДВИЖНЫХ ЛЮДЕЙ В КОЛЯСКАХ.</strong> 
-          Аккуратно доставим колясочника до нужного места, перевезём лежачего пациента из дома в медицинское учреждение и сопроводим по процедурным кабинетам.
+          <strong>ОСУЩЕСТВЛЯЕМ ПЕРЕВОЗКУ ИНВАЛИДОВ, БОЛЬНЫХ И МАЛОПОДВИЖНЫХ ЛЮДЕЙ В КОЛЯСКАХ.</strong>
+          Аккуратно доставим колясочника до нужного места, перевезем лежачего пациента из дома в медицинское учреждение и сопроводим по процедурным кабинетам.
         </p>
         <p>
           Каждый пациент получает внимательное отношение и профессиональную помощь, делая процесс транспортировки максимально комфортным и безопасным.
@@ -265,7 +305,7 @@
 
     <!-- Desktop Bottom Call Button (Hidden on Mobile) -->
     <div class="bottom-call">
-      <a href="tel:+79001234567">Позвонить</a>
+      <a href="tel:+79652595912">Позвонить</a>
     </div>
   </div>
 </body>
