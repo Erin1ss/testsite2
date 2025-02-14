@@ -16,6 +16,23 @@
       background-color: #f8f9fa;
       color: #333;
     }
+    /* Toast notification */
+    #copyToast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(128, 128, 128, 0.8);
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 4px;
+      display: none;
+      z-index: 1000;
+      font-size: 16px;
+    }
+    /* Add pointer cursor to indicate click-to-copy */
+    .phone-number {
+      cursor: pointer;
+    }
     /* Desktop Top Bar (hidden on mobile) */
     .top-bar {
       background-color: #d9534f;
@@ -115,12 +132,11 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .section-first p {
-  font-size: 17px;
-  font-weight: normal;
-  color: #333; /* Standard dark text color */
-  line-height: 1.5;
-}
-
+      font-size: 17px;
+      font-weight: normal;
+      color: #333;
+      line-height: 1.5;
+    }
     /* Other sections use flex layout */
     .section {
       display: flex;
@@ -183,13 +199,11 @@
     .bottom-call a:hover {
       background-color: #025aa5;
     }
-
     .section-first h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #d9534f; /* Restore red color */
-}
-
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #d9534f;
+    }
     /* MEDIA QUERIES */
     @media (max-width: 768px) {
       /* Hide desktop top bar and bottom call button, show mobile contact */
@@ -232,16 +246,117 @@
         padding: 10px 20px;
       }
     }
+    .mobile-only {
+      display: none;
+    }
+    .desktop-only {
+      display: block;
+    }
+    .top-bar .location-info {
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+    .footer-image {
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .footer-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .footer-image {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin: 30px auto;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: 2px solid #adc1d8;
+    }
+    .footer-image .visit {
+      font-size: 20px;
+      font-weight: bold;
+      color: #000000;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .footer-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .urgent-button {
+      background-color: #5cb85c;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .header-section {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin: 30px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: 2px solid #adc1d8;
+    }
+    .urgent-button:hover {
+      background-color: #4cae4c;
+    }
+    @media (max-width: 768px) {
+      .urgent-button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      .urgent-button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+    /* Show the mobile version only on small screens */
+    @media (max-width: 768px) {
+      .mobile-only {
+        display: block;
+        font-size: 18px;
+        text-align: center;
+        color: #333;
+      }
+      .desktop-only {
+        display: none;
+      }
+    }
+    .mobile-only, .desktop-only {
+      padding-bottom: 15px;
+    }
   </style>
 </head>
 <body>
 
   <!-- Desktop Top Bar (Hidden on Mobile) -->
   <div class="top-bar">
+    <span class="location-info">Перевозим по Казани и районам РТ:</span>
+    <!-- Clickable number to copy -->
     <span class="phone-number">+7 (965) 259-59-12</span>
     <a class="urgent-button" href="tel:+79652595912">Срочный заказ перевозки больного</a>
   </div>
-
+   
   <!-- Main Content Container -->
   <div class="main-content">
     <!-- Header Section -->
@@ -250,7 +365,9 @@
       <div class="subtitle">Везем с комфортом и уютом!</div>
       <!-- Mobile Contact Block (Visible on Mobile Only) -->
       <div class="mobile-contact">
+        <!-- Clickable number to copy -->
         <div class="phone-number">+7 (965) 259-59-12</div>
+        <p class="mobile-only">Перевозим по Казани и районам РТ</p>
         <a class="call-button" href="tel:+79652595912">Позвонить</a>
       </div>
     </div>
@@ -310,10 +427,45 @@
       </div>
     </div>
 
-    <!-- Desktop Bottom Call Button (Hidden on Mobile) -->
-    <div class="bottom-call">
-      <a href="tel:+79652595912">Позвонить</a>
+    
+    <!-- Footer Image / Business Card Section -->
+    <div class="footer-image">
+      <span class="visit">Наша визитка:</span>
+      <img src="visit.jpg" alt="Visit Us">
     </div>
+        <!-- Desktop Bottom Call Button (Hidden on Mobile) -->
+        <div class="bottom-call">
+          <a href="tel:+79652595912">Позвонить</a>
+        </div>
   </div>
+
+  <!-- Toast notification element -->
+  <div id="copyToast">Номер скопирован!</div>
+
+  <!-- JavaScript to copy phone number and show toast notification -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const phoneNumbers = document.querySelectorAll('.phone-number');
+      const toast = document.getElementById('copyToast');
+      
+      phoneNumbers.forEach(function(phoneElement) {
+        phoneElement.addEventListener('click', function() {
+          const phoneText = phoneElement.textContent.trim();
+          navigator.clipboard.writeText(phoneText)
+            .then(() => {
+              // Show the toast
+              toast.style.display = 'block';
+              // Hide it after 2 seconds
+              setTimeout(() => {
+                toast.style.display = 'none';
+              }, 2000);
+            })
+            .catch(err => {
+              console.error('Copy failed', err);
+            });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
