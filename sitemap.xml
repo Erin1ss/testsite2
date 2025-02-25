@@ -6,13 +6,13 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://edemleza.ru/Fiat%20Ducato%20Ambulance.jpg</image:loc>
+            <image:loc>https://edemleza.ru/FiatDucatoAmbulance.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://edemleza.ru/Spencer%20Stretcher.jpg</image:loc>
+            <image:loc>https://edemleza.ru/SpencerStretcher.jpg</image:loc>
         </image:image>
         <image:image>
-            <image:loc>https://edemleza.ru/Wheelchair%20Transportation.jpg</image:loc>
+            <image:loc>https://edemleza.ru/WheelchairTransportation.jpg</image:loc>
         </image:image>
         <image:image>
             <image:loc>https://edemleza.ru/visit.jpg</image:loc>
