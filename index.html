@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Профессиональная перевозка лежачих больных от кровати до кровати в Казани и Республике Татарстан. Безопасность и комфорт на каждом этапе транспортировки.">
+  <meta name="description"
+    content="Профессиональная перевозка лежачих больных от кровати до кровати в Казани и Республике Татарстан. Безопасность и комфорт на каждом этапе транспортировки.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Санитарная транспортировка лежачего больного. Служба перевозки лежачих больных и инвалидов в Казани, Республике Татарстан. Пеpeвозка лeжaчих больных от крoвати дo кровати. Медицинские перевозки по Казани. Перевозка больных Казань. Перезовзка лежачих больных по Казани.</title>
+  <title>Санитарная транспортировка лежачего больного. Служба перевозки лежачих больных и инвалидов в Казани, Республике
+    Татарстан. Пеpeвозка лeжaчих больных от крoвати дo кровати. Медицинские перевозки по Казани. Перевозка больных
+    Казань. Перезовзка лежачих больных по Казани.</title>
   <link rel="icon" href="https://edemleza.ru/favicon.ico" type="image/x-icon">
   <link rel="icon" type="image/png" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* Reset defaults */
     * {
@@ -14,343 +19,1072 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #2c3e50;
+      line-height: 1.6;
     }
+
     /* Toast notification */
     #copyToast {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: rgba(128, 128, 128, 0.8);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
-      padding: 10px 15px;
-      border-radius: 4px;
+      padding: 12px 20px;
+      border-radius: 8px;
       display: none;
       z-index: 1000;
-      font-size: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
-    /* Add pointer cursor to indicate click-to-copy */
-    .phone-number {
-      cursor: pointer;
-    }
-    /* Desktop Top Bar (hidden on mobile) */
-    .top-bar {
-      background-color: #d9534f;
+
+    /* Navigation Plates */
+    .nav-plates {
+      background: #2c3e50;
       padding: 10px 0;
       text-align: center;
-      color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    .top-bar .phone-number,
-    .top-bar .urgent-button {
-      font-size: 18px;
-      font-weight: bold;
+
+    .nav-plate {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 20px;
       margin: 0 10px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
     }
+
+    .nav-plate:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* Phone number styling */
+    .phone-number {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .phone-number:hover {
+      transform: scale(1.02);
+    }
+
+    /* Desktop Top Bar */
+    .top-bar {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+    }
+
+    .top-bar .location-info {
+      font-size: 16px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .top-bar .phone-number {
+      font-size: 18px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
     .top-bar .urgent-button {
-      background-color: #5cb85c;
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
       color: #fff;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
+      padding: 12px 25px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+      font-size: 16px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-align: center;
     }
+
     .top-bar .urgent-button:hover {
-      background-color: #4cae4c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
     }
+
     /* Main Content Container */
     .main-content {
-      max-width: 1100px;
-      margin: 20px auto 40px auto;
+      max-width: 1200px;
+      margin: 30px auto;
       background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
       overflow: hidden;
     }
+
     /* Header Section */
     .header-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       text-align: center;
-      padding: 20px;
+      padding: 40px 30px;
+      position: relative;
     }
+
+    .header-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+
     .header-section h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #d9534f;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
     }
+
     .header-section .subtitle {
-      font-size: 18px;
-      color: #555;
-      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 25px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
     }
-    /* Mobile Contact Block: Visible on Mobile Only */
+
+    /* Trust badges */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .trust-badge::before {
+      content: '✓';
+      background: #27ae60;
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* Mobile Contact Block */
     .mobile-contact {
       display: none;
       text-align: center;
-      margin-bottom: 20px;
+      margin-top: 25px;
+      position: relative;
+      z-index: 1;
     }
+
     .mobile-contact .phone-number {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #fff;
     }
+
     .mobile-contact .call-button {
       display: inline-block;
-      background-color: #0275d8;
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
       color: #fff;
       text-decoration: none;
       font-size: 18px;
-      padding: 12px 30px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
+      font-weight: 600;
+      padding: 15px 35px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
     }
+
     .mobile-contact .call-button:hover {
-      background-color: #025aa5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
     }
-    /* Section 1: Fiat Ducato – Use CSS Grid for reordering on mobile */
+
+    /* Section styling */
     .section-first {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
-        "heading image"
-        "text image";
-      gap: 20px;
-      padding: 20px;
+        "heading ford-image"
+        "text ford-image"
+        "text fiat-image";
+      gap: 30px;
+      padding: 40px 30px;
       align-items: start;
     }
+
     .section-first .heading {
       grid-area: heading;
     }
+
     .section-first .text {
       grid-area: text;
     }
-    .section-first .image {
-      grid-area: image;
+
+    .section-first .ford-image {
+      grid-area: ford-image;
       text-align: center;
     }
-    .section-first .image img {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    .section-first .fiat-image {
+      grid-area: fiat-image;
+      text-align: center;
     }
-    .section-first p {
-      font-size: 17px;
-      font-weight: normal;
-      color: #333;
-      line-height: 1.5;
+
+    .section-first .ford-image {
+      margin-bottom: 15px;
     }
-    /* Other sections use flex layout */
+
+    .section-first .ford-image img,
+    .section-first .fiat-image img {
+      max-width: 80%;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .section-first .ford-image img:hover,
+    .section-first .fiat-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Other sections */
     .section {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      gap: 20px;
+      padding: 40px 30px;
+      gap: 30px;
     }
+
     .section-content {
-      flex: 1 1 400px;
-      min-width: 280px;
+      flex: 1 1 450px;
+      min-width: 300px;
     }
+
     .section-image {
-      flex: 1 1 300px;
+      flex: 1 1 350px;
       text-align: center;
-      min-width: 280px;
+      min-width: 300px;
     }
+
     .section-image img {
       max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
     }
-    .section h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: #d9534f;
+
+    .section-image img:hover {
+      transform: scale(1.02);
     }
-    .section p {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 10px;
+
+    /* Typography */
+    .section h2,
+    .section-first h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #e74c3c;
+      position: relative;
     }
-    /* Section 2 (Equipment) – reverse order on desktop */
+
+    .section h2::after,
+    .section-first h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      border-radius: 2px;
+    }
+
+    .section p,
+    .section-first p {
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: #34495e;
+    }
+
+    /* Section variations */
     .section.reverse {
       flex-direction: row-reverse;
     }
-    /* Wheelchair Block */
+
     .wheelchair-block {
-      background-color: #f0f4f8;
+      background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+      position: relative;
     }
+
     .wheelchair-block h2 {
-      color: #0275d8;
+      color: #2980b9;
     }
-    /* Desktop Bottom Call Button (hidden on mobile) */
+
+    .wheelchair-block h2::after {
+      background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    .testimonials-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 40px;
+    }
+
+    .testimonials-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto 40px auto;
+    }
+
+    .testimonials-grid {
+      display: flex;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      gap: 25px;
+      padding: 0 25px;
+      justify-content: center;
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+      z-index: 10;
+    }
+
+    .scroll-arrow:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    }
+
+    .scroll-arrow.left {
+      left: 10px;
+    }
+
+    .scroll-arrow.right {
+      right: 10px;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 60px;
+      color: #3498db;
+      font-family: serif;
+      opacity: 0.3;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #34495e;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 15px;
+    }
+
+    .testimonial-date {
+      font-size: 13px;
+      color: #7f8c8d;
+      margin-top: 5px;
+    }
+
+    .testimonials-link {
+      display: inline-block;
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    .testimonials-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    }
+
+    /* Footer styling */
+    .footer-image {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      margin: 40px auto;
+      max-width: 450px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-image .visit {
+      font-size: 22px;
+      font-weight: 700;
+      color: #2c3e50;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .footer-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Call to action buttons */
     .bottom-call {
       text-align: center;
-      margin: 30px 0;
+      margin: 40px 0;
     }
+
     .bottom-call a {
       display: inline-block;
-      background-color: #0275d8;
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
       color: #fff;
       text-decoration: none;
-      font-size: 18px;
-      padding: 12px 30px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
+      font-size: 20px;
+      font-weight: 600;
+      padding: 15px 40px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
     }
+
     .bottom-call a:hover {
-      background-color: #025aa5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
     }
-    .section-first h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: #d9534f;
+
+    /* Contact section */
+    .contact-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 40px 30px;
+      text-align: center;
+      margin-top: 40px;
     }
-    /* MEDIA QUERIES */
+
+    .contact-section h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      font-size: 16px;
+      color: #34495e;
+      margin-bottom: 25px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+      color: white;
+      text-decoration: none;
+      padding: 15px 35px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+    }
+
+    /* Contact Information Section */
+    .contact-info-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 50px 30px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-info-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-details {
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      text-align: left;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-label {
+      font-weight: 700;
+      color: #2c3e50;
+      font-size: 14px;
+      margin-right: 10px;
+      min-width: 60px;
+    }
+
+    .contact-icon {
+      font-size: 20px;
+      margin-right: 15px;
+      min-width: 30px;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      color: #34495e;
+      line-height: 1.5;
+    }
+
+    .phone-clickable {
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .phone-clickable:hover {
+      color: #3498db;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .call-btn {
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    }
+
+    .avito-btn {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    }
+
+    /* Review Link Section */
+    .review-link-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 50px 30px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .review-link-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .review-link-section>p {
+      font-size: 18px;
+      color: #34495e;
+      margin-bottom: 40px;
+    }
+
+    .review-button-container {
+      margin: 30px 0;
+    }
+
+    .review-link-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      text-decoration: none;
+      padding: 20px 30px;
+      border-radius: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .review-link-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4);
+      background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    }
+
+    .review-icon {
+      font-size: 24px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .review-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .review-text strong {
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+
+    .review-text small {
+      font-size: 14px;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    .review-arrow {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .review-link-button:hover .review-arrow {
+      transform: translateX(5px);
+    }
+
+    .review-note {
+      font-size: 16px;
+      color: #7f8c8d;
+      font-style: italic;
+      margin-top: 20px;
+    }
+
+    .review-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .submit-review-btn {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      border-radius: 25px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    .submit-review-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    }
+
+    .submit-review-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .moderation-note {
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-top: 15px;
+      font-style: italic;
+    }
+
+    /* Utility classes */
+    .mobile-only {
+      display: none;
+    }
+
+    .desktop-only {
+      display: block;
+    }
+
+    /* Tablet Responsive Design (769px - 1024px) */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .top-bar {
+        padding: 12px 20px;
+        gap: 12px;
+      }
+
+      .top-bar .location-info {
+        font-size: 14px;
+      }
+
+      .top-bar .phone-number {
+        font-size: 16px;
+      }
+
+      .top-bar .urgent-button {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+
+      .main-content {
+        margin: 20px;
+      }
+    }
+
+    /* Mobile Responsive Design */
     @media (max-width: 768px) {
-      /* Hide desktop top bar and bottom call button, show mobile contact */
-      .top-bar, .bottom-call { display: none; }
-      .mobile-contact { display: block; }
-      
-      /* For section-first, change grid layout to stack: heading, image, text */
+
+      .top-bar,
+      .bottom-call {
+        display: none;
+      }
+
+      .mobile-contact {
+        display: block;
+      }
+
+      .mobile-only {
+        display: block;
+        font-size: 16px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 15px;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .main-content {
+        margin: 15px;
+        border-radius: 15px;
+      }
+
+      .header-section {
+        padding: 30px 20px;
+      }
+
+      .header-section h1 {
+        font-size: 26px;
+      }
+
+      .header-section .subtitle {
+        font-size: 18px;
+      }
+
+      .trust-badges {
+        gap: 15px;
+      }
+
+      .trust-badge {
+        font-size: 13px;
+        padding: 6px 12px;
+      }
+
       .section-first {
         grid-template-columns: 1fr;
         grid-template-areas:
           "heading"
-          "image"
-          "text";
+          "ford-image"
+          "text"
+          "fiat-image";
+        padding: 30px 20px;
+        gap: 25px;
       }
-      
-      /* For other sections, stack items vertically */
+
+      .section-first .ford-image {
+        grid-area: ford-image;
+        margin-bottom: 0;
+      }
+
+      .section-first .fiat-image {
+        grid-area: fiat-image;
+      }
+
       .section {
         flex-direction: column;
         align-items: stretch;
+        padding: 30px 20px;
+        gap: 25px;
       }
-    }
-    @media (max-width: 480px) {
-      .header-section h1 {
+
+      /* Reduce space between interior section and testimonials on mobile */
+      .section:last-of-type {
+        padding-bottom: 15px;
+      }
+
+      .testimonials-section {
+        padding-top: 25px;
+      }
+
+      .section h2,
+      .section-first h2 {
         font-size: 24px;
       }
+
+      .section p,
+      .section-first p {
+        font-size: 16px;
+      }
+
+      .testimonials-section {
+        padding: 40px 20px;
+      }
+
+      .testimonials-section h2 {
+        font-size: 28px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .testimonial-card {
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-section h1 {
+        font-size: 22px;
+      }
+
       .header-section .subtitle {
         font-size: 16px;
       }
-      .section h2 {
+
+      .mobile-contact .phone-number {
         font-size: 20px;
       }
-      .section p {
-        font-size: 15px;
-      }
-      .mobile-contact .phone-number {
-        font-size: 18px;
-      }
+
       .mobile-contact .call-button {
         font-size: 16px;
-        padding: 10px 20px;
+        padding: 12px 25px;
       }
-    }
-    .mobile-only {
-      display: none;
-    }
-    .desktop-only {
-      display: block;
-    }
-    .top-bar .location-info {
-      font-size: 16px;
-      font-weight: bold;
-      margin-right: 15px;
-    }
-    .footer-image {
-      text-align: center;
-      margin-top: 20px;
-      padding: 20px;
-    }
-    .footer-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .footer-image {
-      background-color: #f8f9fa;
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      margin: 30px auto;
-      max-width: 400px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      border: 2px solid #adc1d8;
-    }
-    .footer-image .visit {
-      font-size: 20px;
-      font-weight: bold;
-      color: #000000;
-      display: block;
-      margin-bottom: 10px;
-    }
-    .footer-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-    .urgent-button {
-      background-color: #5cb85c;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 4px;
-      font-size: 18px;
-      font-weight: bold;
-      display: inline-block;
-      transition: all 0.3s ease;
-      text-align: center;
-      white-space: nowrap;
-    }
 
-    .header-section {
-      background-color: #f8f9fa;
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      margin: 30px auto;
-      max-width: 600px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      border: 2px solid #adc1d8;
-    }
-    .urgent-button:hover {
-      background-color: #4cae4c;
-    }
-    @media (max-width: 768px) {
-      .urgent-button {
-        font-size: 16px;
-        padding: 10px 20px;
+      .section h2,
+      .section-first h2 {
+        font-size: 20px;
       }
-    }
-    @media (max-width: 480px) {
-      .urgent-button {
-        font-size: 14px;
-        padding: 8px 16px;
+
+      .section p,
+      .section-first p {
+        font-size: 15px;
       }
-    }
-    /* Show the mobile version only on small screens */
-    @media (max-width: 768px) {
-      .mobile-only {
-        display: block;
-        font-size: 18px;
+
+      .testimonials-section h2 {
+        font-size: 24px;
+      }
+
+      .testimonial-card {
+        padding: 20px;
+      }
+
+      .review-link-section {
+        padding: 40px 20px;
+        margin: 30px 0;
+      }
+
+      .review-link-section h2 {
+        font-size: 24px;
+      }
+
+      .review-link-button {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        max-width: 300px;
+      }
+
+      .review-text {
+        align-items: center;
         text-align: center;
-        color: #333;
       }
-      .desktop-only {
-        display: none;
+
+      .form-group input,
+      .form-group textarea {
+        font-size: 16px;
       }
-    }
-    .mobile-only, .desktop-only {
-      padding-bottom: 15px;
+
+      .submit-review-btn {
+        font-size: 16px;
+        padding: 12px 25px;
+      }
+
+      .contact-info-section {
+        padding: 40px 20px;
+      }
+
+      .contact-info-section h2 {
+        font-size: 22px;
+      }
+
+      .contact-details {
+        text-align: center;
+      }
+
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .contact-label {
+        margin-bottom: 5px;
+        margin-right: 0;
+      }
+
+      .contact-icon {
+        margin-bottom: 5px;
+        margin-right: 0;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-button {
+        width: 200px;
+        text-align: center;
+      }
     }
   </style>
 </head>
+
 <body>
+
+  <!-- Navigation Plates -->
+  <div class="nav-plates">
+    <a href="contacts.html" class="nav-plate">Контакты</a>
+    <a href="testimonials.html" class="nav-plate">Отзывы</a>
+  </div>
 
   <!-- Desktop Top Bar (Hidden on Mobile) -->
   <div class="top-bar">
@@ -359,13 +1093,20 @@
     <span class="phone-number">+7 (965) 259-59-12</span>
     <a class="urgent-button" href="tel:+79652595912">Срочный заказ перевозки больного</a>
   </div>
-   
+
   <!-- Main Content Container -->
   <div class="main-content">
     <!-- Header Section -->
     <div class="header-section">
       <h1>Пеpeвозка лeжaчих больных от крoвати дo кровати</h1>
       <div class="subtitle">Везем с комфортом и уютом!</div>
+
+      <!-- Trust Badges -->
+      <div class="trust-badges">
+        <div class="trust-badge">Опыт 8+ лет</div>
+        <div class="trust-badge">Более 10,000 благодарных клиентов</div>
+      </div>
+
       <!-- Mobile Contact Block (Visible on Mobile Only) -->
       <div class="mobile-contact">
         <!-- Clickable number to copy -->
@@ -375,21 +1116,27 @@
       </div>
     </div>
 
-    <!-- Section 1: Fiat Ducato (Using Grid for reordering on Mobile) -->
+    <!-- Section 1: Ford Transit и Fiat Ducato (Using Grid for reordering on Mobile) -->
     <div class="section-first">
       <div class="heading">
-        <h2>Fiat Ducato — комфорт и тепло</h2>
+        <h2>Ford Transit и Fiat Ducato — комфорт, надёжность и забота о каждом пациенте</h2>
       </div>
-      <div class="image">
-        <!-- Insert your Fiat Ducato ambulance image here -->
-        <img src="FiatDucatoAmbulance.jpg" alt="FiatDucatoAmbulance">
+      <div class="ford-image">
+        <!-- Ford Transit image - shows before text on mobile -->
+        <img src="FordTransit.jpg" alt="Ford Transit Ambulance">
       </div>
       <div class="text">
         <p>
-          Бережно перевозим лежачих больных от кровати до кровати в уютном и безопасном микроавтобусе <strong>Fiat Ducato</strong>. 
-          Салон всегда поддерживает оптимальный температурный режим – тепло зимой и прохлада летом благодаря кондиционеру.
-          Возможность перевозки до трёх сопровождающих лиц добавляет дополнительное удобство.
+          Мы бережно перевозим лежачих больных от кровати до кровати в наших санитарных автомобилях <strong>Ford
+            Transit</strong> и <strong>Fiat Ducato</strong>. Оба микроавтобуса обеспечивают надёжность, комфорт и
+          безопасность во время поездки. В салоне всегда поддерживается оптимальный температурный режим — тепло зимой и
+          прохлада летом благодаря кондиционеру. Возможность перевозки до трёх сопровождающих лиц делает поездку ещё
+          удобнее как для пациента, так и для его близких.
         </p>
+      </div>
+      <div class="fiat-image">
+        <!-- Fiat Ducato image - shows after text on mobile -->
+        <img src="FiatDucatoAmbulance.jpg" alt="Fiat Ducato Ambulance">
       </div>
     </div>
 
@@ -398,11 +1145,12 @@
       <div class="section-content">
         <h2>Оборудование для безопасности</h2>
         <p>
-          Для надежной транспортировки мы используем медицинскую каталку <strong>Spencer</strong> с ремнями безопасности.
+          Для надежной транспортировки мы используем медицинскую каталку <strong>Spencer</strong> с ремнями
+          безопасности.
           При подъеме на этажи – санитарные носилки со спальным мешком для максимального комфорта пациента.
         </p>
         <p>
-          В дороге доступны одеяло и подушка, а для пациентов с повреждением позвоночника предусмотрены жесткие носилки. 
+          В дороге доступны одеяло и подушка, а для пациентов с повреждением позвоночника предусмотрены жесткие носилки.
           Мы заботимся о каждом этапе перевозки, обеспечивая деликатное обращение.
         </p>
       </div>
@@ -422,37 +1170,95 @@
         <h2>Перевозка инвалидов и малоподвижных людей</h2>
         <p>
           <strong>ОСУЩЕСТВЛЯЕМ ПЕРЕВОЗКУ ИНВАЛИДОВ, БОЛЬНЫХ И МАЛОПОДВИЖНЫХ ЛЮДЕЙ В КОЛЯСКАХ.</strong>
-          Аккуратно доставим колясочника до нужного места, перевезем лежачего пациента из дома в медицинское учреждение и сопроводим по процедурным кабинетам.
+          Аккуратно доставим колясочника до нужного места, перевезем лежачего пациента из дома в медицинское учреждение
+          и обратно.
         </p>
         <p>
-          Каждый пациент получает внимательное отношение и профессиональную помощь, делая процесс транспортировки максимально комфортным и безопасным.
+          Каждый пациент получает внимательное отношение и профессиональную помощь, делая процесс транспортировки
+          максимально комфортным и безопасным.
         </p>
       </div>
     </div>
 
-    
+    <!-- Section 4: Interior View (Flex Layout) -->
+    <div class="section">
+      <div class="section-content">
+        <h2>Комфортный салон для пациентов</h2>
+        <p>
+          Просторный и чистый салон нашего санитарного автомобиля создан специально для комфортной перевозки лежачих
+          больных.
+          Медицинское оборудование надежно закреплено, а мягкое освещение создает спокойную атмосферу во время
+          транспортировки.
+        </p>
+        <p>
+          Все поверхности регулярно дезинфицируются, обеспечивая максимальную гигиену и безопасность для каждого
+          пациента.
+          Достаточно места для размещения медицинского персонала и сопровождающих лиц.
+        </p>
+      </div>
+      <div class="section-image">
+        <!-- Interior photo -->
+        <img src="inside.jpg" alt="Салон санитарного автомобиля">
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section">
+      <h2>Отзывы наших клиентов</h2>
+      <div class="testimonials-container">
+        <button class="scroll-arrow left" onclick="scrollReviews('left')">‹</button>
+        <div class="testimonials-grid" id="mainPageReviews">
+          <!-- Reviews will be loaded here dynamically -->
+        </div>
+        <button class="scroll-arrow right" onclick="scrollReviews('right')">›</button>
+      </div>
+      <a href="testimonials.html" class="testimonials-link">Читать все отзывы</a>
+    </div>
+
+
     <!-- Footer Image / Business Card Section -->
     <div class="footer-image">
       <span class="visit">Наша визитка:</span>
       <img src="visit.jpg" alt="Visit Us">
     </div>
-        <!-- Desktop Bottom Call Button (Hidden on Mobile) -->
-        <div class="bottom-call">
-          <a href="tel:+79652595912">Позвонить</a>
-        </div>
+
+    <!-- Review Form Section -->
+    <div class="review-link-section">
+      <h2>Пользовались нашими услугами?</h2>
+      <p>Если да, то оставьте, пожалуйста, свое мнение, нам это будет очень полезно!</p>
+      <div class="review-button-container">
+        <a href="https://forms.gle/2x3ZGpA3guNf2nHM7" target="_blank" class="review-link-button">
+          <span class="review-icon">⭐</span>
+          <span class="review-text">
+            <strong>Оставить отзыв</strong>
+            <small>Поделитесь своим опытом</small>
+          </span>
+          <span class="review-arrow">→</span>
+        </a>
+      </div>
+      <p class="review-note">Ваш отзыв поможет другим клиентам сделать правильный выбор</p>
+    </div>
+    <!-- Desktop Bottom Call Button (Hidden on Mobile) -->
+    <div class="bottom-call">
+      <a href="tel:+79652595912">Позвонить</a>
+    </div>
+
+
   </div>
 
   <!-- Toast notification element -->
   <div id="copyToast">Номер скопирован!</div>
 
+  <!-- Reviews data is loaded from JSON file or fallback data below -->
+
   <!-- JavaScript to copy phone number and show toast notification -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const phoneNumbers = document.querySelectorAll('.phone-number');
       const toast = document.getElementById('copyToast');
-      
-      phoneNumbers.forEach(function(phoneElement) {
-        phoneElement.addEventListener('click', function() {
+
+      phoneNumbers.forEach(function (phoneElement) {
+        phoneElement.addEventListener('click', function () {
           const phoneText = phoneElement.textContent.trim();
           navigator.clipboard.writeText(phoneText)
             .then(() => {
@@ -468,7 +1274,362 @@
             });
         });
       });
+
+      // Fallback reviews data (sync with reviews-data.json)
+  
+    const fallbackReviews = [
+  {
+    "id": 27,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо за работу, приехали вовремя, доброжелательные молодые люди. Отдельное спасибо за бережное отношение к бабушке и комфортные условия транспортировки.",
+    "author": "Лира",
+    "date": "11 июля 2025"
+  },
+  {
+    "id": 26,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Все прошло отлично, хорошие ребята! Бабушку доставили из больницы домой бережно.",
+    "author": "Валерия",
+    "date": "7 июня 2025"
+  },
+  {
+    "id": 25,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Отличные ребята, приехали во время, даже чуть раньше. Аккуратно перевезли с больницы до кровати дома. Всем рекомендую 👍",
+    "author": "Ольга",
+    "date": "25 апреля 2025"
+  },
+  {
+    "id": 24,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Всё хорошо спустили и обратно подняли на 4 этаж.",
+    "author": "Марат",
+    "date": "7 апреля 2025"
+  },
+  {
+    "id": 23,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Большое спасибо Айдару и его коллеге, перевезли мою тетю очень аккуратно и бережно, от кровати до кровати. Комфортабельная большая машина, есть место для сопровождающего. В общем, все отлично.",
+    "author": "Юлия",
+    "date": "29 января 2025"
+  },
+  {
+    "id": 22,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Выражаю огромную благодарность за оказанную услугу. После заявки ребята оперативно приехали, аккуратно транспортировали больного, все заняло примерно 30 минут. Профессиональный подход! Рекомендую!",
+    "author": "...",
+    "date": "25 декабря 2024"
+  },
+  {
+    "id": 21,
+    "stars": 5,
+    "source": "Авито",
+    "text": "спасибо. всё получил. продавца рекомендую.",
+    "author": "Игнат",
+    "date": "27 августа 2024"
+  },
+  {
+    "id": 20,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Все отлично",
+    "author": "Ирина",
+    "date": "24 июня 2024"
+  },
+  {
+    "id": 19,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Приехали вовремя как и договаривались. Сделали небольшую скидку на обратную дорогу. Качеством услуг доволен. При необходимости буду обращаться.",
+    "author": "Айрат Фаатович",
+    "date": "3 апреля 2024"
+  },
+  {
+    "id": 18,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Заказывали для перевозки папы из больницы в деревню. Папа лежал с переломом бедра. После операции двигаться нельзя. Приехали вовремя, прямо в палате аккуратно завернули в одеяло, положили в спальный мешок, довезли до дома, занесли до кровати. Спасибо огромное!",
+    "author": "Elmira",
+    "date": "28 декабря 2023"
+  },
+  {
+    "id": 17,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Созвонился с ребятами. Всё решили по телефону. В назначенное время приехали, всё выполнили аккуратно. Ребята большие молодцы. Спасибо огромное.",
+    "author": "Артем",
+    "date": "16 октября 2023"
+  },
+  {
+    "id": 16,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Ребята просто супер, не пожалел что воспользовался их услугой, всё аккуратно и с душой.",
+    "author": "Флорит Насибуллин",
+    "date": "21 сентября 2023"
+  },
+  {
+    "id": 15,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Огромная благодарность ребятам! Созвонились, договорились, приехали вовремя, перевезли больного. И, что очень важно, все сделали по-доброму, с пониманием и участием. Спасибо!",
+    "author": "Рина",
+    "date": "10 сентября 2023"
+  },
+  {
+    "id": 14,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо большое профессионалам!!! 👏",
+    "author": "Евгений",
+    "date": "2 сентября 2023"
+  },
+  {
+    "id": 13,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Всё хорошо, ребята молодцы, очень довольна оказанной услугой! В день обращения нашли время и приехали быстро в течение часа. Отлично выполнили свою работу, полностью оказали услугу по транспортировке пациента в лечебное учреждение и обратно домой.",
+    "author": "Юлия",
+    "date": "1 августа 2023"
+  },
+  {
+    "id": 12,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Ребята молодцы! Огромная вам благодарность за указанную услугу. В день обращения нашли время, все быстро и четко. Добрые и отзывчивые.",
+    "author": "Альбина",
+    "date": "30 июля 2023"
+  },
+  {
+    "id": 11,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Очень довольна оказанной услугой. Договорились накануне. Утром уточнила все детали. Это очень удобно. Они все сами знают. Надо сказать только адрес и палату. В машине были места для сопровождения. С бабушкой обращались хорошо. Когда уходили, пожелали ей выздоровления. Было приятно. 👏",
+    "author": "ЛинаМинималист",
+    "date": "21 июля 2023"
+  },
+  {
+    "id": 10,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Я еще бы эти звезды умножила на 2;3;4 ... Молодцы ребята, респект. Перевозила сегодня маму домой, ребята подъехали раньше, чем я, очень была рада, машина большая, соответствует фото, погрузили маму, все вещи, все вежливо, культурно, спокойно, я шла на легке, до машины и до дома. Взяли по городу аккуратно. Я очень рада, что обратилась за помощью к ним. ( был опыт на Ларгусе 🤦‍♀️). Всем советую именно их, и буду рекомендовать своим знакомым. Спасибо Вам большое за ваш труд.",
+    "author": "Жанна",
+    "date": "23 июня 2023"
+  },
+  {
+    "id": 9,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо большое за грамотный и профессиональный подход к своему делу! Вежливые люди.",
+    "author": "Диана Юрьевна",
+    "date": "29 мая 2023"
+  },
+  {
+    "id": 8,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Ребята молодцы своего дела 👍🏻 большое спасибо за помощь. Приехали вовремя, отвезли без происшествий!",
+    "author": "Марсель",
+    "date": "28 марта 2023"
+  },
+  {
+    "id": 7,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Быстро приехали, сделали все четко и оперативно, нужно было перевезти бабушку из больницы домой, перевезли аккуратно, спасибо большое!",
+    "author": "Юлия",
+    "date": "17 марта 2023"
+  },
+  {
+    "id": 6,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо большое Айдару. Сделали все быстро, но аккуратно. Свой девиз \"От кровати до кровати\" выполняют на 100%. Цена адекватная.",
+    "author": "Сделай Сам",
+    "date": "10 февраля 2023"
+  },
+  {
+    "id": 5,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Громадное спасибо Айдару! Оперативно подняли, привезли, подождали в больнице и привезли бабушку! Спасибо большое Вам!",
+    "author": "Самира",
+    "date": "17 октября 2022"
+  },
+  {
+    "id": 4,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Все просто отлично!!! Заказывала не один раз, все четко, без суеты. Рекомендую от души 👍🏻👍🏻👍🏻",
+    "author": "Ольга",
+    "date": "5 октября 2022"
+  },
+  {
+    "id": 3,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Внимательное отношение к пациенту и родственникам. Аккуратная перевозка по городу и подъем на этаж. Спасибо огромное, Айдар и К.",
+    "author": "Алсу",
+    "date": "18 августа 2022"
+  },
+  {
+    "id": 2,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Всё очень чётко, оперативно! Вежливые ребята. Спасибо огромное за помощь. Рекомендую.",
+    "author": "Гузель",
+    "date": "27 апреля 2022"
+  },
+  {
+    "id": 1,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо большое Ребятам .. перевезли больного от постели до постели, все быстро и оперативно. Дай бог им здоровья..",
+    "author": "Александр",
+    "date": "10 марта 2022"
+  }
+      ];
+
+      // Load reviews for main page (show first 7)
+      async function loadMainPageReviews() {
+        let reviews = [];
+
+        try {
+          // Try to fetch from JSON file first (works on web server)
+          const response = await fetch('reviews-data.json');
+          reviews = await response.json();
+        } catch (error) {
+          // Fallback to embedded data (works when opening files directly)
+          console.log('Using fallback reviews data');
+          reviews = fallbackReviews;
+        }
+
+        const container = document.getElementById('mainPageReviews');
+
+        if (reviews.length === 0) {
+          container.innerHTML = `
+            <div class="testimonial-card" style="flex: 0 0 300px; text-align: center; padding: 60px 30px;">
+              <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px;">Отзывы скоро появятся</h3>
+              <p style="font-size: 18px; color: #34495e; margin-bottom: 30px;">
+                Мы работаем над добавлением отзывов на сайт
+              </p>
+            </div>
+          `;
+          return;
+        }
+
+        // Show first 7 reviews
+        const displayReviews = reviews.slice(0, 7);
+
+        container.innerHTML = displayReviews.map(review => {
+          const stars = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+          const sourceLink = review.source === 'Авито'
+            ? `<a href="https://www.avito.ru/kazan/predlozheniya_uslug/perevozka_lezhachih_bolnyh_2337943938" target="_blank" style="color: #3498db; text-decoration: none;">отзыв получен с Авито</a>`
+            : 'отзыв получен с сайта';
+
+          return `
+            <div class="testimonial-card" style="flex: 0 0 300px; border-left: 4px solid #3498db;">
+              <div class="rating" style="color: #f39c12; font-size: 18px; margin-bottom: 15px;">${stars}</div>
+              <div class="testimonial-text">${review.text}</div>
+              <div class="testimonial-author">${review.author}</div>
+              <div class="testimonial-date">${review.date}</div>
+              <div style="font-size: 12px; color: #95a5a6; margin-top: 10px;">${sourceLink}</div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Scroll reviews function
+      function scrollReviews(direction) {
+        const container = document.getElementById('mainPageReviews');
+        const scrollAmount = 325; // Card width + gap
+
+        if (direction === 'left') {
+          container.scrollLeft -= scrollAmount;
+        } else {
+          container.scrollLeft += scrollAmount;
+        }
+      }
+
+      // Make scrollReviews function globally available
+      window.scrollReviews = scrollReviews;
+
+      // Load main page reviews when page loads
+      loadMainPageReviews();
+
+      // Make phone number clickable in contact section
+      const phoneClickable = document.querySelector('.phone-clickable');
+      if (phoneClickable) {
+        phoneClickable.addEventListener('click', function () {
+          window.location.href = 'tel:+79652595912';
+        });
+      }
+
+      // Review form submission
+      const reviewForm = document.getElementById('reviewForm');
+      if (reviewForm) {
+        reviewForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+
+          const submitBtn = document.querySelector('.submit-review-btn');
+          const originalText = submitBtn.textContent;
+
+          // Disable button and show loading state
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Отправляется...';
+
+          // Get form data
+          const formData = {
+            name: document.getElementById('reviewName').value,
+            phone: document.getElementById('reviewPhone').value,
+            review: document.getElementById('reviewText').value,
+            serviceDate: document.getElementById('reviewDate').value,
+            timestamp: new Date().toISOString(),
+            source: 'Сайт'
+          };
+
+          try {
+            // In a real implementation, this would send to your backend
+            // For now, we'll simulate the email sending
+            await simulateEmailSend(formData);
+
+            // Show success message
+            alert('Спасибо за ваш отзыв! После модерации он будет опубликован на сайте.');
+
+            // Reset form
+            reviewForm.reset();
+
+          } catch (error) {
+            console.error('Error submitting review:', error);
+            alert('Произошла ошибка при отправке отзыва. Пожалуйста, попробуйте еще раз или позвоните нам напрямую.');
+          } finally {
+            // Re-enable button
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
+      }
     });
+
+    // Simulate email sending (replace with actual backend call)
+    async function simulateEmailSend(reviewData) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // Log the review data (in real implementation, send to backend)
+          console.log('Review submitted:', reviewData);
+          console.log('Would send to emails from email-config.json');
+          resolve();
+        }, 1500);
+      });
+    }
   </script>
+
 </body>
+
 </html>

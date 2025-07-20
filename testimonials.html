@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description"
+    content="Отзывы клиентов о перевозке лежачих больных в Казани. Реальные истории и благодарности за качественную медицинскую транспортировку.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отзывы клиентов - Перевозка лежачих больных в Казани</title>
+  <link rel="icon" href="https://edemleza.ru/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset defaults */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    /* Navigation Plates */
+    .nav-plates {
+      background: #2c3e50;
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-plate {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 20px;
+      margin: 0 10px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-plate:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* Navigation */
+    .nav-bar {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      padding: 15px 0;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      margin: 0 20px;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-bar a:hover {
+      opacity: 0.8;
+    }
+    
+    .nav-bar a[href^="tel:"] {
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-bar a[href^="tel:"]:hover {
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+
+    .phone-display {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 20px;
+    }
+
+    /* Main Content Container */
+    .main-content {
+      max-width: 1200px;
+      margin: 30px auto;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Header Section */
+    .header-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 40px 30px;
+      position: relative;
+    }
+
+    .header-section h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .header-section .subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 50px 30px;
+    }
+
+    .testimonials-list {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+    }
+
+    .testimonial-item {
+      background: white;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+      border-left: 4px solid #3498db;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-item:hover {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+      transform: translateX(5px);
+    }
+
+    .testimonial-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .testimonial-author-info {
+      flex: 1;
+    }
+
+    .testimonial-rating {
+      color: #f39c12;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .testimonial-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #34495e;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: #2c3e50;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .testimonial-date {
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+
+    /* Rating stars */
+    .rating {
+      color: #f39c12;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    /* Back button */
+    .back-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+      margin: 30px auto;
+      display: block;
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    }
+
+    /* Contact section */
+    .contact-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 40px 30px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-section h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      font-size: 16px;
+      color: #34495e;
+      margin-bottom: 25px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+      color: white;
+      text-decoration: none;
+      padding: 15px 35px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 768px) {
+      .main-content {
+        margin: 15px;
+        border-radius: 15px;
+      }
+
+      .header-section {
+        padding: 30px 20px;
+      }
+
+      .header-section h1 {
+        font-size: 28px;
+      }
+
+      .testimonials-section {
+        padding: 40px 20px;
+      }
+
+      .testimonials-list {
+        margin: 0 20px 40px 20px;
+      }
+
+      .testimonial-item {
+        padding: 20px;
+        margin-bottom: 15px;
+      }
+
+      .testimonial-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+
+      .testimonial-rating {
+        align-self: flex-start;
+      }
+
+      .nav-bar {
+        padding: 10px 0;
+      }
+
+      .nav-bar a,
+      .phone-display {
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+      .contact-section {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-section h1 {
+        font-size: 24px;
+      }
+
+      .testimonial-card {
+        padding: 20px;
+      }
+
+      .testimonial-text {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Plates -->
+  <div class="nav-plates">
+    <a href="index.html" class="nav-plate">← Главная</a>
+    <a href="contacts.html" class="nav-plate">Контакты</a>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="nav-bar">
+    <span class="phone-display">+7 (965) 259-59-12</span>
+    <a href="tel:+79652595912">Позвонить</a>
+  </div>
+
+  <!-- Main Content Container -->
+  <div class="main-content">
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1>Отзывы наших клиентов</h1>
+      <div class="subtitle">Реальные истории людей, которым мы помогли</div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section">
+      <div class="testimonials-list" id="reviewsContainer">
+        <!-- Reviews will be loaded here dynamically -->
+      </div>
+
+      <a href="index.html" class="back-button">← Вернуться на главную</a>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <h3>Нужна медицинская перевозка?</h3>
+      <p>Мы работаем круглосуточно и готовы помочь в любое время</p>
+      <a href="tel:+79652595912" class="contact-button">Позвонить сейчас</a>
+    </div>
+  </div>
+
+  <script>
+    // Fallback reviews data (sync with reviews-data.json)
+    const fallbackReviews = [
+  {
+    "id": 27,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо за работу, приехали вовремя, доброжелательные молодые люди. Отдельное спасибо за бережное отношение к бабушке и комфортные условия транспортировки.",
+    "author": "Лира",
+    "date": "11 июля 2025"
+  },
+  {
+    "id": 26,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Все прошло отлично, хорошие ребята! Бабушку доставили из больницы домой бережно.",
+    "author": "Валерия",
+    "date": "7 июня 2025"
+  },
+  {
+    "id": 25,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Отличные ребята, приехали во время, даже чуть раньше. Аккуратно перевезли с больницы до кровати дома. Всем рекомендую 👍",
+    "author": "Ольга",
+    "date": "25 апреля 2025"
+  },
+  {
+    "id": 24,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Всё хорошо спустили и обратно подняли на 4 этаж.",
+    "author": "Марат",
+    "date": "7 апреля 2025"
+  },
+  {
+    "id": 23,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Большое спасибо Айдару и его коллеге, перевезли мою тетю очень аккуратно и бережно, от кровати до кровати. Комфортабельная большая машина, есть место для сопровождающего. В общем, все отлично.",
+    "author": "Юлия",
+    "date": "29 января 2025"
+  },
+  {
+    "id": 22,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Выражаю огромную благодарность за оказанную услугу. После заявки ребята оперативно приехали, аккуратно транспортировали больного, все заняло примерно 30 минут. Профессиональный подход! Рекомендую!",
+    "author": "...",
+    "date": "25 декабря 2024"
+  },
+  {
+    "id": 21,
+    "stars": 5,
+    "source": "Авито",
+    "text": "спасибо. всё получил. продавца рекомендую.",
+    "author": "Игнат",
+    "date": "27 августа 2024"
+  },
+  {
+    "id": 20,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Все отлично",
+    "author": "Ирина",
+    "date": "24 июня 2024"
+  },
+  {
+    "id": 19,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Приехали вовремя как и договаривались. Сделали небольшую скидку на обратную дорогу. Качеством услуг доволен. При необходимости буду обращаться.",
+    "author": "Айрат Фаатович",
+    "date": "3 апреля 2024"
+  },
+  {
+    "id": 18,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Заказывали для перевозки папы из больницы в деревню. Папа лежал с переломом бедра. После операции двигаться нельзя. Приехали вовремя, прямо в палате аккуратно завернули в одеяло, положили в спальный мешок, довезли до дома, занесли до кровати. Спасибо огромное!",
+    "author": "Elmira",
+    "date": "28 декабря 2023"
+  },
+  {
+    "id": 17,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Созвонился с ребятами. Всё решили по телефону. В назначенное время приехали, всё выполнили аккуратно. Ребята большие молодцы. Спасибо огромное.",
+    "author": "Артем",
+    "date": "16 октября 2023"
+  },
+  {
+    "id": 16,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Ребята просто супер, не пожалел что воспользовался их услугой, всё аккуратно и с душой.",
+    "author": "Флорит Насибуллин",
+    "date": "21 сентября 2023"
+  },
+  {
+    "id": 15,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Огромная благодарность ребятам! Созвонились, договорились, приехали вовремя, перевезли больного. И, что очень важно, все сделали по-доброму, с пониманием и участием. Спасибо!",
+    "author": "Рина",
+    "date": "10 сентября 2023"
+  },
+  {
+    "id": 14,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо большое профессионалам!!! 👏",
+    "author": "Евгений",
+    "date": "2 сентября 2023"
+  },
+  {
+    "id": 13,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Всё хорошо, ребята молодцы, очень довольна оказанной услугой! В день обращения нашли время и приехали быстро в течение часа. Отлично выполнили свою работу, полностью оказали услугу по транспортировке пациента в лечебное учреждение и обратно домой.",
+    "author": "Юлия",
+    "date": "1 августа 2023"
+  },
+  {
+    "id": 12,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Ребята молодцы! Огромная вам благодарность за указанную услугу. В день обращения нашли время, все быстро и четко. Добрые и отзывчивые.",
+    "author": "Альбина",
+    "date": "30 июля 2023"
+  },
+  {
+    "id": 11,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Очень довольна оказанной услугой. Договорились накануне. Утром уточнила все детали. Это очень удобно. Они все сами знают. Надо сказать только адрес и палату. В машине были места для сопровождения. С бабушкой обращались хорошо. Когда уходили, пожелали ей выздоровления. Было приятно. 👏",
+    "author": "ЛинаМинималист",
+    "date": "21 июля 2023"
+  },
+  {
+    "id": 10,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Я еще бы эти звезды умножила на 2;3;4 ... Молодцы ребята, респект. Перевозила сегодня маму домой, ребята подъехали раньше, чем я, очень была рада, машина большая, соответствует фото, погрузили маму, все вещи, все вежливо, культурно, спокойно, я шла на легке, до машины и до дома. Взяли по городу аккуратно. Я очень рада, что обратилась за помощью к ним. ( был опыт на Ларгусе 🤦‍♀️). Всем советую именно их, и буду рекомендовать своим знакомым. Спасибо Вам большое за ваш труд.",
+    "author": "Жанна",
+    "date": "23 июня 2023"
+  },
+  {
+    "id": 9,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо большое за грамотный и профессиональный подход к своему делу! Вежливые люди.",
+    "author": "Диана Юрьевна",
+    "date": "29 мая 2023"
+  },
+  {
+    "id": 8,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Ребята молодцы своего дела 👍🏻 большое спасибо за помощь. Приехали вовремя, отвезли без происшествий!",
+    "author": "Марсель",
+    "date": "28 марта 2023"
+  },
+  {
+    "id": 7,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Быстро приехали, сделали все четко и оперативно, нужно было перевезти бабушку из больницы домой, перевезли аккуратно, спасибо большое!",
+    "author": "Юлия",
+    "date": "17 марта 2023"
+  },
+  {
+    "id": 6,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо большое Айдару. Сделали все быстро, но аккуратно. Свой девиз \"От кровати до кровати\" выполняют на 100%. Цена адекватная.",
+    "author": "Сделай Сам",
+    "date": "10 февраля 2023"
+  },
+  {
+    "id": 5,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Громадное спасибо Айдару! Оперативно подняли, привезли, подождали в больнице и привезли бабушку! Спасибо большое Вам!",
+    "author": "Самира",
+    "date": "17 октября 2022"
+  },
+  {
+    "id": 4,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Все просто отлично!!! Заказывала не один раз, все четко, без суеты. Рекомендую от души 👍🏻👍🏻👍🏻",
+    "author": "Ольга",
+    "date": "5 октября 2022"
+  },
+  {
+    "id": 3,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Внимательное отношение к пациенту и родственникам. Аккуратная перевозка по городу и подъем на этаж. Спасибо огромное, Айдар и К.",
+    "author": "Алсу",
+    "date": "18 августа 2022"
+  },
+  {
+    "id": 2,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Всё очень чётко, оперативно! Вежливые ребята. Спасибо огромное за помощь. Рекомендую.",
+    "author": "Гузель",
+    "date": "27 апреля 2022"
+  },
+  {
+    "id": 1,
+    "stars": 5,
+    "source": "Авито",
+    "text": "Спасибо большое Ребятам .. перевезли больного от постели до постели, все быстро и оперативно. Дай бог им здоровья..",
+    "author": "Александр",
+    "date": "10 марта 2022"
+  }
+    ];
+
+    // Load reviews function
+    async function loadReviews() {
+      let reviews = [];
+      
+      try {
+        // Try to fetch from JSON file first (works on web server)
+        const response = await fetch('reviews-data.json');
+        reviews = await response.json();
+      } catch (error) {
+        // Fallback to embedded data (works when opening files directly)
+        console.log('Using fallback reviews data');
+        reviews = fallbackReviews;
+      }
+      
+      const container = document.getElementById('reviewsContainer');
+
+      if (reviews.length === 0) {
+        container.innerHTML = `
+          <div class="testimonial-item" style="text-align: center; padding: 60px 30px;">
+            <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px;">Отзывы скоро появятся</h3>
+            <p style="font-size: 18px; color: #34495e; margin-bottom: 30px;">
+              Мы работаем над добавлением отзывов на сайт
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = reviews.map(review => {
+        const stars = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+        const sourceLink = review.source === 'Авито'
+          ? `<a href="https://www.avito.ru/kazan/predlozheniya_uslug/perevozka_lezhachih_bolnyh_2337943938" target="_blank" style="color: #3498db; text-decoration: none;">отзыв получен с Авито</a>`
+          : 'отзыв получен с сайта';
+
+        return `
+          <div class="testimonial-item">
+            <div class="testimonial-header">
+              <div class="testimonial-author-info">
+                <div class="testimonial-author">${review.author}</div>
+                <div class="testimonial-date">${review.date}</div>
+              </div>
+              <div class="testimonial-rating">${stars}</div>
+            </div>
+            <div class="testimonial-text">${review.text}</div>
+            <div style="font-size: 12px; color: #95a5a6; margin-top: 10px;">${sourceLink}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Load reviews when page loads
+    document.addEventListener('DOMContentLoaded', loadReviews);
+  </script>
+
+</body>
+
+</html>

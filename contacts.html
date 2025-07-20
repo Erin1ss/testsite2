@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Контакты службы перевозки лежачих больных в Казани. Телефон, Авито, способы связи для заказа медицинской транспортировки.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты - Перевозка лежачих больных в Казани</title>
+  <link rel="icon" href="https://edemleza.ru/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset defaults */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    /* Navigation Plates */
+    .nav-plates {
+      background: #2c3e50;
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .nav-plate {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 20px;
+      margin: 0 10px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .nav-plate:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-1px);
+    }
+
+    /* Navigation */
+    .nav-bar {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      padding: 15px 0;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+    }
+    
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      margin: 0 20px;
+      transition: opacity 0.3s ease;
+    }
+    
+    .nav-bar a:hover {
+      opacity: 0.8;
+    }
+    
+    .nav-bar a[href^="tel:"] {
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-bar a[href^="tel:"]:hover {
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+    
+    .phone-display {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 20px;
+    }
+
+    /* Main Content Container */
+    .main-content {
+      max-width: 1200px;
+      margin: 30px auto;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    /* Header Section */
+    .header-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 40px 30px;
+      position: relative;
+    }
+    
+    .header-section h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    
+    .header-section .subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    /* Toast notification */
+    #copyToast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      display: none;
+      z-index: 1000;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Contact Information Section */
+    .contact-info-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 50px 30px;
+      text-align: center;
+    }
+    
+    .contact-info-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .contact-details {
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      text-align: left;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .contact-icon {
+      font-size: 20px;
+      margin-right: 15px;
+      min-width: 30px;
+    }
+    
+    .contact-value {
+      font-size: 16px;
+      color: #34495e;
+      line-height: 1.5;
+    }
+    
+    .phone-clickable {
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .phone-clickable:hover {
+      color: #3498db;
+    }
+    
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .contact-button {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 35px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    }
+    
+    .call-btn {
+      background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    }
+    
+    .avito-btn {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    }
+    
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+    }
+
+    /* Mobile Responsive Design */
+    @media (max-width: 768px) {
+      .main-content {
+        margin: 15px;
+        border-radius: 15px;
+      }
+      
+      .header-section {
+        padding: 30px 20px;
+      }
+      
+      .header-section h1 {
+        font-size: 28px;
+      }
+      
+      .contact-info-section {
+        padding: 40px 20px;
+      }
+      
+      .contact-info-section h2 {
+        font-size: 22px;
+      }
+      
+      .contact-details {
+        text-align: center;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+      
+      .contact-icon {
+        margin-bottom: 5px;
+        margin-right: 0;
+      }
+      
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .contact-button {
+        width: 200px;
+        text-align: center;
+      }
+      
+      .nav-bar {
+        padding: 10px 0;
+      }
+      
+      .nav-bar a, .phone-display {
+        font-size: 14px;
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-section h1 {
+        font-size: 24px;
+      }
+      
+      .contact-item {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Plates -->
+  <div class="nav-plates">
+    <a href="index.html" class="nav-plate">← Главная</a>
+    <a href="testimonials.html" class="nav-plate">Отзывы</a>
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="nav-bar">
+    <span class="phone-display">+7 (965) 259-59-12</span>
+    <a href="tel:+79652595912">Позвонить</a>
+  </div>
+   
+  <!-- Main Content Container -->
+  <div class="main-content">
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1>Наши контакты</h1>
+      <div class="subtitle">Свяжитесь с нами удобным способом</div>
+    </div>
+
+    <!-- Contact Information Section -->
+    <div class="contact-info-section">
+      <h2>НАШИ КОНТАКТЫ В <span style="color: #3498db;">КАЗАНИ</span></h2>
+      
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-value phone-clickable">+7 (965) 259-59-12</div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-value">
+            <a href="https://www.avito.ru/kazan/predlozheniya_uslug/perevozka_lezhachih_bolnyh_2337943938" target="_blank" style="color: #3498db; text-decoration: none;">
+              Авито - Перевозка лежачих больных
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-buttons">
+        <a href="tel:+79652595912" class="contact-button call-btn">Позвонить</a>
+        <a href="https://www.avito.ru/kazan/predlozheniya_uslug/perevozka_lezhachih_bolnyh_2337943938" target="_blank" class="contact-button avito-btn">Задать вопрос</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification element -->
+  <div id="copyToast">Номер скопирован!</div>
+
+  <script>
+    // Make phone number clickable to copy
+    document.addEventListener('DOMContentLoaded', function() {
+      const phoneClickable = document.querySelector('.phone-clickable');
+      const toast = document.getElementById('copyToast');
+      
+      if (phoneClickable) {
+        phoneClickable.addEventListener('click', function() {
+          const phoneText = phoneClickable.textContent.trim();
+          navigator.clipboard.writeText(phoneText)
+            .then(() => {
+              // Show the toast
+              toast.style.display = 'block';
+              // Hide it after 2 seconds
+              setTimeout(() => {
+                toast.style.display = 'none';
+              }, 2000);
+            })
+            .catch(err => {
+              console.error('Copy failed', err);
+              // Fallback to phone call if copy fails
+              window.location.href = 'tel:+79652595912';
+            });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
