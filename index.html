@@ -36,10 +36,10 @@
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
-      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
     
     ym(103402608, 'init', {webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
@@ -281,8 +281,8 @@
         "heading ford-image"
         "text ford-image"
         "text fiat-image";
-      gap: 30px;
-      padding: 40px 30px;
+      gap: 40px;
+      padding: 60px 40px;
       align-items: start;
     }
 
@@ -310,7 +310,9 @@
 
     .section-first .ford-image img,
     .section-first .fiat-image img {
-      max-width: 80%;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
       border-radius: 15px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s ease;
@@ -327,8 +329,8 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      padding: 40px 30px;
-      gap: 30px;
+      padding: 60px 40px;
+      gap: 40px;
     }
 
     .section-content {
@@ -337,13 +339,15 @@
     }
 
     .section-image {
-      flex: 1 1 350px;
+      flex: 1 1 500px;
       text-align: center;
       min-width: 300px;
     }
 
     .section-image img {
       max-width: 100%;
+      width: 100%;
+      height: auto;
       border-radius: 15px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s ease;
@@ -1167,9 +1171,11 @@
       <div class="heading">
         <h2 id="vehicles-heading">Ford Transit и Fiat Ducato — комфорт, надёжность и забота о каждом пациенте</h2>
       </div>
-      <div class="ford-image">
+      <div class="ford-image" itemscope itemtype="https://schema.org/ImageObject">
         <!-- Ford Transit image - shows before text on mobile -->
-        <img src="FordTransit.jpg" alt="Санитарный автомобиль Ford Transit для перевозки лежачих больных в Казани" loading="lazy" width="800" height="600">
+        <img src="FordTransit.jpg" alt="Санитарный автомобиль Ford Transit для перевозки лежачих больных от кровати до кровати в Казани и Республике Татарстан" loading="lazy" width="2084" height="1172" itemprop="contentUrl">
+        <meta itemprop="name" content="Санитарный автомобиль Ford Transit для медицинской транспортировки">
+        <meta itemprop="description" content="Современный санитарный автомобиль Ford Transit с медицинским оборудованием для комфортной перевозки лежачих больных в Казани">
       </div>
       <div class="text">
         <p>
@@ -1180,9 +1186,11 @@
           удобнее как для пациента, так и для его близких.
         </p>
       </div>
-      <div class="fiat-image">
+      <div class="fiat-image" itemscope itemtype="https://schema.org/ImageObject">
         <!-- Fiat Ducato image - shows after text on mobile -->
-        <img src="FiatDucatoAmbulance.jpg" alt="Санитарный автомобиль Fiat Ducato для медицинской транспортировки больных" loading="lazy" width="800" height="600">
+        <img src="FiatDucatoAmbulance.jpg" alt="Санитарный автомобиль Fiat Ducato для медицинской транспортировки лежачих больных и инвалидов в Казани" loading="lazy" width="800" height="600" itemprop="contentUrl">
+        <meta itemprop="name" content="Санитарный автомобиль Fiat Ducato для перевозки больных">
+        <meta itemprop="description" content="Просторный санитарный автомобиль Fiat Ducato с климат-контролем для безопасной перевозки лежачих пациентов">
       </div>
     </section>
 
@@ -1200,17 +1208,21 @@
           Мы заботимся о каждом этапе перевозки, обеспечивая деликатное обращение.
         </p>
       </div>
-      <div class="section-image">
+      <div class="section-image" itemscope itemtype="https://schema.org/ImageObject">
         <!-- Insert your Spencer stretcher image here -->
-        <img src="SpencerStretcher.jpg" alt="Медицинская каталка Spencer с ремнями безопасности для транспортировки больных" loading="lazy" width="800" height="600">
+        <img src="SpencerStretcher.jpg" alt="Медицинская каталка Spencer с ремнями безопасности для безопасной транспортировки лежачих больных в Казани" loading="lazy" width="800" height="600" itemprop="contentUrl">
+        <meta itemprop="name" content="Медицинская каталка Spencer с ремнями безопасности">
+        <meta itemprop="description" content="Профессиональная медицинская каталка Spencer с системой ремней безопасности для надежной транспортировки пациентов">
       </div>
     </section>
 
     <!-- Section 3: Wheelchair Transport (Flex Layout) -->
     <section class="section wheelchair-block" aria-labelledby="wheelchair-heading">
-      <div class="section-image">
+      <div class="section-image" itemscope itemtype="https://schema.org/ImageObject">
         <!-- Insert your wheelchair transportation image here -->
-        <img src="WheelchairTransportation.jpg" alt="Перевозка инвалидов и людей в инвалидных колясках в Казани" loading="lazy" width="800" height="600">
+        <img src="WheelchairTransportation.jpg" alt="Перевозка инвалидов и людей в инвалидных колясках по Казани и Республике Татарстан - профессиональная транспортировка маломобильных пациентов" loading="lazy" width="800" height="600" itemprop="contentUrl">
+        <meta itemprop="name" content="Перевозка инвалидов в инвалидных колясках">
+        <meta itemprop="description" content="Специализированная транспортировка инвалидов и маломобильных людей в колясках с профессиональным сопровождением">
       </div>
       <div class="section-content">
         <h2 id="wheelchair-heading">Перевозка инвалидов и малоподвижных людей</h2>
@@ -1242,9 +1254,11 @@
           Достаточно места для размещения медицинского персонала и сопровождающих лиц.
         </p>
       </div>
-      <div class="section-image">
+      <div class="section-image" itemscope itemtype="https://schema.org/ImageObject">
         <!-- Interior photo -->
-        <img src="inside.jpg" alt="Просторный и чистый салон санитарного автомобиля для перевозки лежачих больных" loading="lazy" width="800" height="600">
+        <img src="inside.jpg" alt="Просторный и чистый салон санитарного автомобиля для комфортной перевозки лежачих больных в Казани - медицинское оборудование и климат-контроль" loading="lazy" width="800" height="600" itemprop="contentUrl">
+        <meta itemprop="name" content="Салон санитарного автомобиля для перевозки больных">
+        <meta itemprop="description" content="Комфортабельный салон с медицинским оборудованием, климат-контролем и местами для сопровождающих лиц">
       </div>
     </section>
 
@@ -1282,9 +1296,11 @@
 
 
     <!-- Footer Image / Business Card Section -->
-    <aside class="footer-image">
+    <aside class="footer-image" itemscope itemtype="https://schema.org/ImageObject">
       <span class="visit">Наша визитка:</span>
-      <img src="visit.jpg" alt="Визитная карточка службы перевозки лежачих больных ЕдемЛежа" loading="lazy" width="600" height="400">
+      <img src="visit.jpg" alt="Визитная карточка службы перевозки лежачих больных ЕдемЛежа - контакты и информация о медицинской транспортировке в Казани" loading="lazy" width="600" height="400" itemprop="contentUrl">
+      <meta itemprop="name" content="Визитная карточка ЕдемЛежа">
+      <meta itemprop="description" content="Контактная информация службы медицинской транспортировки лежачих больных в Казани">
     </aside>
 
     <!-- Review Form Section -->
