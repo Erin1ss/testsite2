@@ -3,10 +3,18 @@
 
 <head>
   <script>
+    // Редирект с index.html
     if (location.pathname.endsWith("index.html")) {
       location.replace("https://edemleza.ru/");
     }
+
+    // Если github.io — запрет индексации и перекид
+    if (location.hostname.includes("github.io")) {
+      document.write('<meta name="robots" content="noindex, nofollow">');
+      location.replace("https://edemleza.ru" + location.pathname);
+    }
   </script>
+
 
   <meta charset="UTF-8">
   <meta name="description" content="Перевозка лежачих больных от кровати до кровати в Казани. Опыт 8+ лет, комфортные автомобили, профессиональная команда.">
@@ -1861,4 +1869,5 @@
 </body>
 
 </html>
+
 
